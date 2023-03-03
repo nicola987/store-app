@@ -10,25 +10,40 @@ import {
   WrapperButton,
   Trash,
   ImgProduct,
+  WrapperImgTitle,
 } from "./ProductBox.styled";
 
-function Item() {
+function Item({
+  id,
+  title,
+  price,
+  totalPrice,
+  desc,
+  img,
+  count,
+  handleDeleteProduct,
+}) {
+  // const [count, setCount] = usState([defaultCount]);
+
   return (
-    <WrapperItem>
-      <TitleProduct>
-        <b> Glam Shop </b>
-        <br />
-        Paleta cieni do powiek Wiśnia w Czekoladzie
-      </TitleProduct>
-      <Price>128,99 zł</Price>
+    <WrapperItem key={id}>
+      <WrapperImgTitle>
+        <ImgProduct src={img} alt="cosmetics" />
+        <TitleProduct>
+          <b> {title} </b>
+          <br />
+          {desc}
+        </TitleProduct>
+      </WrapperImgTitle>
+      <Price>{price}</Price>
       <Quantity>
         <WrapperButton>
-          <ButtonMinus>-</ButtonMinus> 1 <ButtonPlus>+</ButtonPlus>
+          <ButtonMinus>-</ButtonMinus> {count} <ButtonPlus>+</ButtonPlus>
         </WrapperButton>
       </Quantity>
       <Total>
-        128,99 zł{" "}
-        <Trash>
+        {totalPrice}
+        <Trash onClick={() => handleDeleteProduct(id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

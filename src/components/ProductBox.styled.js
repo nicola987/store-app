@@ -82,14 +82,22 @@ export const ButtonPlus = styled.button`
 
 export const WrapperButton = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 10px;
 `;
 
 export const Trash = styled.div`
   width: 18px;
   height: 18px;
   color: #71797b;
+  align-items: center;
 `;
 
 // IMG
-export const ImgProduct = styled.img``;
+export const ImgProduct = styled.img`
+  width: 100px;
+  height: auto;
+`;
+
+export const WrapperImgTitle = styled.div`
+  display: flex;
+`;
