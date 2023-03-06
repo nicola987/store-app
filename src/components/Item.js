@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Quantity,
   TitleProduct,
@@ -13,18 +13,15 @@ import {
   WrapperImgTitle,
 } from "./ProductBox.styled";
 
-function Item({
-  id,
-  title,
-  price,
-  totalPrice,
-  desc,
-  img,
-  count,
-  handleDeleteProduct,
-}) {
-  // const [count, setCount] = usState([defaultCount]);
-
+function Item({ id, title, price, desc, img, count, handleDeleteProduct }) {
+  const [localCount, setLocalCount] = useState(count);
+  const handleIncreaseCount = () => {
+    setLocalCount(localCount + 1);
+  };
+  const handleDecreaseCount = () => {
+    setLocalCount(localCount - 1);
+  };
+  const totalPrice = price * localCount;
   return (
     <WrapperItem key={id}>
       <WrapperImgTitle>
@@ -35,14 +32,18 @@ function Item({
           {desc}
         </TitleProduct>
       </WrapperImgTitle>
-      <Price>{price}</Price>
+      <Price>{price} zł</Price>
       <Quantity>
         <WrapperButton>
-          <ButtonMinus>-</ButtonMinus> {count} <ButtonPlus>+</ButtonPlus>
+          <ButtonMinus onClick={handleDecreaseCount} disabled={localCount <= 1}>
+            -
+          </ButtonMinus>{" "}
+          {localCount}
+          <ButtonPlus onClick={handleIncreaseCount}>+</ButtonPlus>
         </WrapperButton>
       </Quantity>
       <Total>
-        {totalPrice}
+        {totalPrice.toFixed(2)} zł
         <Trash onClick={() => handleDeleteProduct(id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
