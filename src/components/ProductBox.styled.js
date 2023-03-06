@@ -67,6 +67,7 @@ export const ButtonMinus = styled.button`
   min-width: 26px;
   border: 1px solid #d0d8da;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const ButtonPlus = styled.button`
@@ -78,6 +79,7 @@ export const ButtonPlus = styled.button`
   border-radius: 5px;
   background-color: #fff;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const WrapperButton = styled.div`
@@ -90,6 +92,7 @@ export const Trash = styled.div`
   height: 18px;
   color: #71797b;
   align-items: center;
+  cursor: pointer;
 `;
 
 // IMG
@@ -100,4 +103,16 @@ export const ImgProduct = styled.img`
 
 export const WrapperImgTitle = styled.div`
   display: flex;
+`;
+
+export const ButtonAddNewProduct = styled.button`
+  font-size: 14px;
+  background: #2694ac;
+  border: unset;
+  color: #fff;
+  border-radius: 20px;
+  padding: 8px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 600;
 `;

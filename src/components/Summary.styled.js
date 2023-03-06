@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SummaryBox = styled.div`
   width: fit-content;
-  height: fit-content;
+  height: auto;
   border: 1px solid #d0d8da;
   border-radius: 5px;
   padding: 15px;
